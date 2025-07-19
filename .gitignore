@@ -1,0 +1,15 @@
+# Ignore compiled files
+/target/
+
+# Ignore IDE files
+*.iml
+.idea/
+.vscode/
+
+# Ignore environment or sensitive files
+application.properties
+.env
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
