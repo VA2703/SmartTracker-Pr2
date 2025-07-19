@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Expense - SmartSpend</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <a href="/dashboard">← Back to Dashboard</a>
+
+
+</head>
+<body>
+<h2>Add Expense</h2>
+
+<form th:action="@{/web/expenses/save(userId=${userId})}" method="post" th:object="${expense}">
+    <input type="text" th:field="*{category}" placeholder="Category" required/><br/>
+    <input type="text" th:field="*{description}" placeholder="Description" required/><br/>
+    <input type="number" th:field="*{amount}" placeholder="Amount" step="0.01" required/><br/>
+    <input type="date" th:field="*{date}" required/><br/>
+    <button type="submit">Add</button>
+</form>
+
+<a th:href="@{/web/expenses(userId=${userId})}">Back to Expenses</a>
+</body>
+</html>

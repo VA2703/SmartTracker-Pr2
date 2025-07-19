@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <!-- Include Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>Welcome, <span th:text="${user.username}"></span></h2>
+
+<!-- Link to expenses -->
+<p><a th:href="@{/web/expenses}">Go to Expenses</a></p>
+
+<!-- Chart section -->
+<h3>Monthly Expense Summary</h3>
+<canvas id="expenseChart" width="400" height="200"></canvas>
+
+<!-- Logout link -->
+<p><a th:href="@{/logout}">Logout</a></p>
+
+<!-- Chart rendering script -->
+<script>
+    const ctx = document.getElementById('expenseChart').getContext('2d');
+    const expenseChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Food', 'Travel', 'Shopping', 'Bills', 'Other'],
+            datasets: [{
+                label: '₹ Spent',
+                data: [1200, 800, 1500, 900, 400], // Static sample data
+                backgroundColor: [
+                    '#4e73df',
+                    '#1cc88a',
+                    '#36b9cc',
+                    '#f6c23e',
+                    '#e74a3b'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

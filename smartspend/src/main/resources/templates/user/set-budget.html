@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Set Budget</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<h2>Set Monthly Budget</h2>
+
+<form th:action="@{/budget/save}" method="post">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" required>
+
+    <label for="month">Month:</label>
+    <input type="month" id="month" name="month" required>
+
+    <button type="submit">Save Budget</button>
+</form>
+
+
+
+<a href="/dashboard">← Back to Dashboard</a>
+
+
+</body>
+</html>

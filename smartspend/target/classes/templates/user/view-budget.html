@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Budget</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<body>
+<h2>Your Budget</h2>
+
+<div th:if="${budget != null}">
+    <p><strong>Month:</strong> <span th:text="${budget.month}"></span></p>
+    <p><strong>Amount:</strong> ₹<span th:text="${budget.amount}"></span></p>
+    <p><strong>Spent:</strong> ₹<span th:text="${spentAmount}"></span></p>
+    <p><strong>Remaining:</strong> ₹<span th:text="${budget.amount - spentAmount}"></span></p>
+</div>
+<div th:if="${budget == null}">
+    <p>No budget set for this month.</p>
+</div>
+
+<a th:href="@{~/dashboard}">← Back to Dashboard</a>
+<a href="/dashboard">← Back to Dashboard</a>
+
+
+
+</body>
+</html>
